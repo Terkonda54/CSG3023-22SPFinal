@@ -16,7 +16,8 @@ using UnityEngine;
 public class BrickSpawner : MonoBehaviour
 {
    
-    public GameObject brickPrefab; 
+    public GameObject brickPrefab;
+    private GameObject brickGo;
     public float paddingBetweenBricks = 0.25f; 
     private Vector2 brickPadding = new Vector2(0,0);  
 
@@ -34,9 +35,12 @@ public class BrickSpawner : MonoBehaviour
         {
             for(int x=0; x < 7; x++)
             {
-                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0); 
-              
-                brickGo = Instantiate.brickPrefab; 
+                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0);
+
+                
+                brickGo = Instantiate(brickPrefab) as GameObject; //instantiate the game object for reference
+                
+                //brickGo = Instantiate.brickPrefab; 
               
                 brickGo.transform.parent = transform; 
                 brickGo.transform.localPosition = pos; 
